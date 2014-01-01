@@ -1,14 +1,22 @@
 # clojure_fu
 
-A Clojure library designed to ... well, that part is up to you.
+Given a grid of letters, write a function that determines if a word
+exists within that grid. From any letter, you can move north, south,
+east, or west (no diagonals), and cannot repeat the letters.
 
-## Usage
 
-FIXME
+  ```
+    Example: "CLOJURE"
+    A B E R X
+    O C L U R
+    M N O J P
+    T Y U V W
 
-## License
+    # # E R #
+    # C L U #
+    # # O J #
+    # # # # #
+  ```
 
-Copyright © 2013 FIXME
-
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+Warning: I'm new to clojure, so I assume this is a very suboptimal
+solution.
