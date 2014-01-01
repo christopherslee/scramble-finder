@@ -1,33 +1,20 @@
 (ns clojure-fu.core)
 
-(defn north
-  [current_pos grid_width grid_height]
+(defn north [current_pos grid_width grid_height]
   (let [new_pos (- current_pos grid_width)]
-    (if (> new_pos 0)
-      new_pos
-      nil)))
+    (if (> new_pos 0) new_pos nil)))
 
-(defn south
-  [current_pos grid_width grid_height]
+(defn south [current_pos grid_width grid_height]
   (let [new_pos (+ current_pos grid_width)]
-    (if (< new_pos (* grid_width grid_height))
-      new_pos
-      nil)))
+    (if (< new_pos (* grid_width grid_height)) new_pos nil)))
 
-(defn east
-  [current_pos grid_width grid_height]
-    (if (= 9 (mod current_pos grid_width))
-      nil
-      (inc current_pos)))
+(defn east [current_pos grid_width grid_height]
+    (if (= 9 (mod current_pos grid_width)) nil (inc current_pos)))
 
-(defn west
-  [current_pos grid_width grid_height]
-    (if (= 0 (mod current_pos grid_width))
-      nil
-      (dec current_pos)))
+(defn west [current_pos grid_width grid_height]
+    (if (= 0 (mod current_pos grid_width)) nil (dec current_pos)))
 
-(defn find-word
-  [current_idx word grid grid_width grid_height visited]
+(defn find-word [current_idx word grid grid_width grid_height visited]
   (if (= 0 (count word))
     true
     (if (not (contains? visited current_idx))
