@@ -9,6 +9,8 @@
   (testing "Given a word and a grid of letters, determines if the word can be found in the grid."
     (is (= true (exists-in-grid "good" grid 10)))
     (is (= false (exists-in-grid "quick" grid 10)))
+    (is (= false (exists-in-grid "pot" grid 10))) ; pot would be blocked by the boundaries of the grid
+    (is (= false (exists-in-grid "wed" grid 10))) ; wed would be blocked by the boundaries of the grid
 ))
 
 (deftest test-north
