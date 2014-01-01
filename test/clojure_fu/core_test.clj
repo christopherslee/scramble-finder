@@ -5,13 +5,21 @@
 (def grid '[\t \h \e \d \o \i \c \k \b \r
             \o \w \n \g \o \x \j \u \m \p])
 
-(deftest exists-in-grid-test
+(deftest test-exists-in-grid
   (testing "Given a word and a grid of letters, determines if the word can be found in the grid."
     (is (= true (exists-in-grid "good" grid 10)))
     (is (= false (exists-in-grid "quick" grid 10)))
     (is (= false (exists-in-grid "pot" grid 10))) ; pot would be blocked by the boundaries of the grid
     (is (= false (exists-in-grid "wed" grid 10))) ; wed would be blocked by the boundaries of the grid
 ))
+
+(deftest test-find-word-empty
+  (testing "return true if the word is empty"
+    (is (= true (find-word 0 "" [] 10 2 [])))))
+
+(deftest test-find-word-already-visited
+  (testing "return false if we've already visited the tile"
+    (is (= false (find-word 0 "cow" [] 10 2 [0])))))
 
 (deftest test-north
   (testing "Returns the position one block north of the current position"
