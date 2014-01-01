@@ -32,16 +32,16 @@
     true
     (if (not (contains? visited current_idx))
       (if (= (first word) (nth grid current_idx))
-        (contains? (set (list
+        (cond
           (if (north current_idx grid_width grid_height)
-            (find-word (north current_idx grid_width grid_height) (rest word) grid grid_width grid_height (conj visited current_idx)))
+            (find-word (north current_idx grid_width grid_height) (rest word) grid grid_width grid_height (conj visited current_idx))) true
           (if (south current_idx grid_width grid_height)
-            (find-word (south current_idx grid_width grid_height) (rest word) grid grid_width grid_height (conj visited current_idx)))
+            (find-word (south current_idx grid_width grid_height) (rest word) grid grid_width grid_height (conj visited current_idx))) true
           (if (east current_idx grid_width grid_height)
-            (find-word (east current_idx grid_width grid_height) (rest word) grid grid_width grid_height (conj visited current_idx)))
+            (find-word (east current_idx grid_width grid_height) (rest word) grid grid_width grid_height (conj visited current_idx))) true
           (if (west current_idx grid_width grid_height)
-            (find-word (west current_idx grid_width grid_height) (rest word) grid grid_width grid_height (conj visited current_idx)))
-        )) true)
+            (find-word (west current_idx grid_width grid_height) (rest word) grid grid_width grid_height (conj visited current_idx))) true
+          :else false)
         false)
       false)
     ))
