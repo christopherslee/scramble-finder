@@ -9,10 +9,10 @@
     (if (< new_pos (* grid_width grid_height)) new_pos nil)))
 
 (defn east [current_pos grid_width grid_height]
-    (if (= 9 (mod current_pos grid_width)) nil (inc current_pos)))
+  (if (= 9 (mod current_pos grid_width)) nil (inc current_pos)))
 
 (defn west [current_pos grid_width grid_height]
-    (if (= 0 (mod current_pos grid_width)) nil (dec current_pos)))
+  (if (= 0 (mod current_pos grid_width)) nil (dec current_pos)))
 
 (defn find-word [current_idx word grid grid_width grid_height visited]
   (if (= 0 (count word))
